@@ -780,7 +780,7 @@ boolean  WiFiManager::startConfigPortal(char const *apName, char const *apPasswo
     if(_configPortalTimeout > 0) DEBUG_WM(DEBUG_VERBOSE,F("Portal Timeout In"),(String)(_configPortalTimeout/1000) + (String)F(" seconds"));
   #endif
 
-  while(1){
+  while(1){//开启配置界面后，在此循环
 
     // if timed out or abort, break
     if(configPortalHasTimeout() || abort){

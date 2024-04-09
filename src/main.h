@@ -100,6 +100,7 @@ void APCallback(WiFiManager *myWiFiManager)
 
 void init_wifiManager()
 {
+  wifiManager.setTitle("Wish today");
   WiFiManagerParameter blinker_auth("auth", "blinker_auth(12位)", "", 13);
   WiFiManagerParameter host_hint("<small> Blinker_auth <br></small><br><br>");
   WiFiManagerParameter p_lineBreak_notext("<p></p>");

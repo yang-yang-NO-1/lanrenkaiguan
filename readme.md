@@ -10,3 +10,32 @@
 3.打开点灯APP，点击按钮即可控制舵机打开或关闭开关。
 ## 硬件说明
 sw拨动开关为电量指示灯开关，减少设备耗电同时防止灯光污染，sw1按键为上电开关，单击即可为打开电源输出，双击即可关闭电源输出，flash按键为程序烧录按键。
+```
+#define PWM1 5        // 舵机驱动引脚
+#define zero_angle 95 // 舵机零点角度
+#define angle 20      // 舵机动作角度
+
+void Button1Callback(const String &state)
+{
+  if (state == BLINKER_CMD_ON)
+  {
+    BLINKER_LOG("Toggle on!");
+    Button1.icon("fas fa-lightbulb");
+    Button1.print("on");
+    myservo.write(zero_angle - angle - 5); // tell servo to go to position in variable 'pos'
+    delay(500);
+    myservo.write(zero_angle - 1);
+  }
+  else if (state == BLINKER_CMD_OFF)
+  {
+    BLINKER_LOG("Toggle off!");
+    Button1.icon("far fa-lightbulb");
+    Button1.print("off");
+    myservo.write(zero_angle + angle + 5); // tell servo to go to position in variable 'pos'
+    delay(500);
+    myservo.write(zero_angle + 1);
+  }
+}
+
+```
+# esp8266做远程开关功耗太高，故添加远程断开控制板电源，手动开启的方式
