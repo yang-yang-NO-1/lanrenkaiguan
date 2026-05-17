@@ -1,0 +1,12 @@
+{
+  "name": "IotMiniBlinker",
+  "version": "1.2.0",
+  "description": "A small Blinker-style MQTT widget helper with WiFiManager portal support for ESP8266/ESP32.",
+  "keywords": "mqtt, blinker, esp8266, esp32, wifimanager, iot",
+  "frameworks": "arduino",
+  "platforms": ["espressif8266", "espressif32"],
+  "dependencies": [
+    { "name": "PubSubClient", "version": "^2.8" },
+    { "name": "ArduinoJson", "version": "^6.21.5" }
+  ]
+}
